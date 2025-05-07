@@ -93,10 +93,11 @@ onoremap <C-c> "+y
 
 call plug#begin('~/.vim/plugged')
 	
-	Plug 'dense-analysis/ale'
+	" Plug 'dense-analysis/ale'
 	Plug 'preservim/nerdtree'
 	Plug 'https://github.com/gnu-octave/vim-octave.git', {'for': 'octave'}
 	Plug 'morhetz/gruvbox'
+	Plug 'iosmanthus/vim-nasm'
 
 call plug#end()
 
@@ -111,6 +112,9 @@ set background=dark
 " finally, activate gruvbox
 colorscheme gruvbox
 
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+
+" Tell Vim to treat .asm/.S files as NASM
+autocmd BufRead,BufNewFile *.asm,*.S set filetype=asm
 
 nnoremap <leader>n :NERDTreeToggle<CR>
